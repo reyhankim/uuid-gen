@@ -21,5 +21,7 @@ func readinessCheck(w http.ResponseWriter, r *http.Request) {
 }
 
 func generateUUIDv4(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, uuid.NewV4().String())
+	var err error
+	u1 := uuid.Must(uuid.NewV4(), err)
+	fmt.Fprint(w, u1.String())
 }
