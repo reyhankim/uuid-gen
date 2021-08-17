@@ -5,7 +5,7 @@ RUN apk add --update git; \
     go mod vendor
 WORKDIR ${GOPATH}/uuid-gen/
 COPY cmd ${GOPATH}/uuid-gen/cmd
-RUN go build -o uuid-gen .
+RUN go build -o uuid-gen/cmd .
 
 FROM alpine:latest
 RUN apk --no-cache add ca-certificates
