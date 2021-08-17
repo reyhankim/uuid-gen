@@ -26,7 +26,7 @@ beautify: vendor_modules
 
 docker: default
 	@echo "=============Building docker images============="
-	docker build -f build/Dockerfile -t $(REGISTRY)/$(IMAGE_NAME):$(VERSION) .
+	docker build -f Dockerfile -t $(REGISTRY)/$(IMAGE_NAME):$(VERSION) .
 
 doc:
 	@echo "=============Serving docs============="
