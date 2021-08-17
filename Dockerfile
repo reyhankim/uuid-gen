@@ -3,7 +3,7 @@ EXPOSE 8080
 RUN apk add --update git; \
     mkdir -p ${GOPATH}/uuid-gen; \
     go get -u github.com/gorilla/mux; \
-    go get -u github.com/satori/go.uuid
+    go get -u github.com/google/uuid
 WORKDIR ${GOPATH}/uuid-gen/
 COPY main.go ${GOPATH}/uuid-gen/
 RUN go build -o uuid-gen .
