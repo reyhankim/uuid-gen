@@ -1,11 +1,12 @@
-FROM golang:1.16.2-alpine
+FROM golang:1.11.1-alpine
 EXPOSE 8080
 RUN apk add --update git; \
     mkdir -p ${GOPATH}/uuid-gen; \
-    go mod vendor
+    go get -u github.com/gorilla/mux; \
+    go get -u github.com/satori/go.uuid; \
 WORKDIR ${GOPATH}/uuid-gen/
-COPY cmd ${GOPATH}/uuid-gen/cmd
-RUN go build -o uuid-gen/cmd .
+COPY rest-api.go ${GOPATH}/uuid-gen/
+RUN go build -o uuid-gen .
 
 FROM alpine:latest
 RUN apk --no-cache add ca-certificates

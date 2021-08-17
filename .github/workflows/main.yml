@@ -27,7 +27,7 @@ jobs:
         else
           VERSION=$(git rev-parse --short ${{ github.sha }})
         fi
-        make docker VERSION=${VERSION}
+        make build VERSION=${VERSION}
     # - uses: codecov/codecov-action@v1.0.3
     #   if: github.repository == 'reyhankim/predictive-horizontal-pod-autoscaler'
     #   with:
