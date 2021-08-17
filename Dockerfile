@@ -5,7 +5,7 @@ RUN apk add --update git; \
     go get -u github.com/gorilla/mux; \
     go get -u github.com/satori/go.uuid
 WORKDIR ${GOPATH}/uuid-gen/
-COPY rest-api.go ${GOPATH}/uuid-gen/
+COPY main.go ${GOPATH}/uuid-gen/
 RUN go build -o uuid-gen .
 
 FROM alpine:latest
